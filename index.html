@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Đám cưới Văn Sỹ & Thùy Dung</title>
+    <meta content="Chào mừng bạn đến với đám cưới của Văn Sỹ & Thùy Dung" name="description" />
+    <meta property="og:image" content="images/pic5.jpg" />
+    <meta property="fb:admins" content="Soonkwon.Justin.Hwang" />
+    <link
+      href="images/favicon/apple-touch-icon.png"
+      rel="apple-touch-icon"
+      sizes="180x180"
+    />
+    <link
+      href="images/favicon/favicon-32x32.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      href="images/favicon/favicon-16x16.png"
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:400,500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Great+Vibes"
+      rel="stylesheet"
+    />
+    <link href="css/ekko-lightbox.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gamja+Flower|Gugi|Noto+Serif+KR|Stylish|Sunflower:300"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.js"
+      type="text/javascript"
+    ></script>
+    <style>
+      .heart {
+        position: fixed;
+        font-size: 30px;
+        color: #ff1744;
+        pointer-events: none;
+        z-index: 9999;
+        animation: float-up 3s ease-in-out forwards;
+        text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+      }
+
+      @keyframes float-up {
+        0% {
+          opacity: 1;
+          transform: translateY(0) rotate(0deg) scale(0);
+        }
+        10% {
+          transform: translateY(-10px) rotate(15deg) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-100px) rotate(-15deg) scale(1.2);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-200px) rotate(30deg) scale(0.5);
+        }
+      }
+
+      /* Countdown Timer Styles */
+      .countdown-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .countdown-box {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        padding: 20px 25px;
+        min-width: 100px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .countdown-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .countdown-number {
+        font-size: 3em;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-family: 'Dosis', sans-serif;
+        line-height: 1;
+      }
+
+      .countdown-label {
+        font-size: 1em;
+        color: #fff;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: 'Noto Serif KR', serif;
+      }
+
+      @media (max-width: 768px) {
+        .countdown-item {
+          min-width: 70px;
+          padding: 15px 20px;
+        }
+
+        .countdown-number {
+          font-size: 2em;
+        }
+
+        .countdown-label {
+          font-size: 0.8em;
+        }
+
+        .countdown-box {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <header></header>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2"
+    ></script>
+    <div class="page-content">
+      <div class="div">
+        <div class="ww-home-page" id="home">
+          <div
+            class="
+              ww-wedding-announcement
+              d-flex
+              align-items-center
+              justify-content-start
+            "
+          >
+            <div class="container ww-announcement-container">
+              <p class="ww-couple-name ww-title" style="font-size: 4em">
+                Văn Sỹ
+              </p>
+              <p class="ww-couple-name ww-title" style="font-size: 3em">&</p>
+              <p class="ww-couple-name ww-title" style="font-size: 4em">Thùy Dung</p>
+              <br /><br /><br /><br /><br /><br />
+              <p
+                class="h2 mt-5 ww-title"
+                style="font-family: 'Gugi', cursive; font-size: 1em"
+              >
+                | CHÚNG TÔI SẮP KẾT HÔN |
+              </p>
+              <p
+                class="h2 mt-5 ww-title"
+                style="
+                  font-family: 'Noto Serif KR', serif;
+                  font-size: 1em;
+                  letter-spacing: -1px;
+                "
+              >
+                <b style="font-size: 1.4em">2026. 01. 17. THỨ 7 11:30 AM</b>
+                <br />
+                <br />Wild Pink 248 Broad Ave, Palisades Park, NJ 07650
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ww-nav-bar sticky-top bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+              <button
+                aria-controls="ww-navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-target="#ww-navbarNav"
+                data-toggle="collapse"
+                type="button"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div
+                class="collapse navbar-collapse text-uppercase"
+                id="ww-navbarNav"
+              >
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link smooth-scroll" href="#home">Trang chủ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link smooth-scroll" href="#couple">Cô dâu & Chú rể</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link smooth-scroll" href="#events">Sự kiện</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link smooth-scroll" href="#gallery"
+                      >Thư viện ảnh</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="ww-section" id="couple">
+          <div class="container">
+            <h2
+              class="h1 text-center pb-3 ww-title"
+              style="font-family: 'Noto Serif KR', serif"
+            >
+              Chú rể & Cô dâu
+            </h2>
+            <div class="row text-center">
+              <div class="col-md-6">
+                <div class="mt-3">
+                  <h3
+                    class="h2 ww-title"
+                    style="
+                      font-family: 'Sunflower', sans-serif;
+                      font-size: 1.5em;
+                    "
+                  >
+                    NGUYỄN VĂN SỸ
+                  </h3>
+                  <img alt="Chú rể" class="img-fluid" src="images/pic9.jpg" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mt-3">
+                  <h3
+                    class="h2 ww-title"
+                    style="
+                      font-family: 'Sunflower', sans-serif;
+                      font-size: 1.5em;
+                    "
+                  >
+                    NGUYỄN THÙY DUNG
+                  </h3>
+                  <img alt="Cô dâu" class="img-fluid" src="images/pic8.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ww-section bg-light" id="events">
+          <div class="container ww-wedding-event">
+            <h2
+              class="h1 text-center pb-3 ww-title"
+              style="font-family: 'Noto Serif KR', serif"
+            >
+              Chúng tôi trân trọng mời bạn!
+            </h2>
+            <div class="row">
+              <div class="col-md-7 col-sm-12">
+                <div class="my-3">
+                  <div class="h4">Wild Pink</div>
+                  <ul>
+                    <li>
+                      <i class="text-muted fas fa-map-marker-alt"></i>
+                      <span class="pl-2 text-muted"
+                        >248 Broad Ave, Palisades Park, NJ 07650</span
+                      >
+                    </li>
+
+                    <li class="pt-2">
+                      <i class="text-muted far fa-calendar-alt"></i>
+                      <span class="pl-2 text-muted"
+                        >2026. 01. 17. THỨ 7 11:30 AM</span
+                      >
+                    </li>
+                    <br />
+                    <a
+                      href="https://www.google.com/maps/place/wild+pink/@40.8471026,-74.0003605,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2f72ec67aa247:0x6d7af0abd2ca2794!8m2!3d40.8470986!4d-73.9981718"
+                    >
+                      <img
+                        alt="google-map"
+                        class="map-icon"
+                        id="google-map"
+                        src="images/map/google-map.png"
+                      />
+                    </a>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-12">
+                <div class="my-3">
+                  <img
+                    alt="Tiệc cưới"
+                    class="img-fluid"
+                    src="images/wedding-party.jpg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ww-section" id="gallery">
+          <div class="ww-photo-gallery">
+            <div class="container">
+              <h2
+                class="h1 text-center pb-3 ww-title"
+                style="font-family: 'Noto Serif KR', serif"
+              >
+                Thư viện ảnh
+              </h2>
+              <div class="ww-gallery">
+                <div class="card-columns">
+                  <div
+                    class="card"
+                    data-groups='["wedding","ceremony","party"]'
+                  >
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 6"
+                        class="img-fluid"
+                        src="images/pic7.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 7"
+                        class="img-fluid"
+                        src="images/pic5.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 7"
+                        class="img-fluid"
+                        src="images/pic10.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 3"
+                        class="img-fluid"
+                        src="images/pic3.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 4"
+                        class="img-fluid"
+                        src="images/pic4.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 5"
+                        class="img-fluid"
+                        src="images/pic6.jpg"
+                      />
+                    </a>
+                  </div>
+                  
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 7"
+                        class="img-fluid"
+                        src="images/pic11.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 7"
+                        class="img-fluid"
+                        src="images/pic12.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 7"
+                        class="img-fluid"
+                        src="images/pic13.jpg"
+                      />
+                    </a>
+                  </div>
+                  <div class="card" data-groups='["party","wedding"]'>
+                    <a data-gallery="ww-gallery" data-toggle="lightbox">
+                      <img
+                        alt="Gallery Pic 2"
+                        class="img-fluid"
+                        src="images/pic2.jpg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ww-section parallax-window text-white"
+          data-parallax="scroll"
+          data-image-src="images/gift/gift-background.jpg"
+          id="gifts"
+        >
+          <div class="ww-gift-section">
+            <div class="container">
+              <div class="col text-center mb-5">
+                <h6 style="font-family: 'Noto Serif KR', serif">
+                  Khi ở bên nhau, chúng tôi là chính mình nhất<br />
+                  và cùng nhau vẽ nên những ước mơ về tương lai.<br /><br />
+
+                  Giống như kỳ nghỉ hè đáng mong đợi,<br />
+                  chúng tôi chuẩn bị bắt đầu hành trình cuộc đời cùng nhau.<br /><br />
+
+                  Chúng tôi trân trọng kính mời quý khách đến tham dự<br />
+                  và chúc phúc cho chúng tôi trong ngày trọng đại này.<br />
+
+                  <br /><br />
+                </h6>
+                <h7
+                  class="h7 text-center pb-3 ww-title"
+                  style="font-family: 'Noto Serif KR', serif"
+                  >Quà mừng đám cưới</h7
+                >
+                <h5 style="font-family: 'Noto Serif KR', serif">
+                  Bank: @Thùy-Dung
+                </h5>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-container mt-5">
+                  <div class="countdown-box">
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="days">0</span>
+                      <span class="countdown-label">Ngày</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="hours">0</span>
+                      <span class="countdown-label">Giờ</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="minutes">0</span>
+                      <span class="countdown-label">Phút</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-number" id="seconds">0</span>
+                      <span class="countdown-label">Giây</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/ekko-lightbox.min.js"></script>
+
+    <div class="bottom_left">
+      <audio id="player" src="mus.mp3"></audio>
+      <div>
+        <i
+          class="fa fa-music fa-2x"
+          onclick="document.getElementById('player').play()"
+        ></i>
+      </div>
+    </div>
+
+    <script>
+      // ===== COUNTDOWN TIMER =====
+      // Ngày đám cưới: 2026. 01. 17. 11:30 AM
+      const weddingDate = new Date('2026-01-17T11:30:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        // Tính toán thời gian
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Cập nhật hiển thị
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+
+        // Nếu đếm ngược kết thúc
+        if (distance < 0) {
+          document.getElementById('days').textContent = '0';
+          document.getElementById('hours').textContent = '0';
+          document.getElementById('minutes').textContent = '0';
+          document.getElementById('seconds').textContent = '0';
+        }
+      }
+
+      // Cập nhật mỗi giây
+      setInterval(updateCountdown, 1000);
+      // Chạy ngay lập tức
+      updateCountdown();
+
+      // ===== HEART ANIMATION =====
+      // Hàm tạo trái tim
+      function createHeart(x, y) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤';
+
+        // Đặt vị trí của trái tim
+        heart.style.left = (x - 15) + 'px';
+        heart.style.top = (y - 15) + 'px';
+
+        // Thêm một chút ngẫu nhiên cho vị trí ngang
+        const randomOffset = (Math.random() - 0.5) * 40;
+        heart.style.transform = `translateX(${randomOffset}px)`;
+
+        document.body.appendChild(heart);
+
+        // Xóa trái tim sau khi animation kết thúc
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+
+      // Biến để kiểm soát tần suất tạo trái tim
+      let lastHeartTime = 0;
+      const heartInterval = 50; // milliseconds
+
+      // Sự kiện di chuột
+      document.addEventListener('mousemove', function(e) {
+        const currentTime = Date.now();
+        if (currentTime - lastHeartTime > heartInterval) {
+          createHeart(e.clientX, e.clientY);
+          lastHeartTime = currentTime;
+        }
+      });
+
+      // Sự kiện chạm cho di động
+      document.addEventListener('touchmove', function(e) {
+        const currentTime = Date.now();
+        if (currentTime - lastHeartTime > heartInterval) {
+          const touch = e.touches[0];
+          createHeart(touch.clientX, touch.clientY);
+          lastHeartTime = currentTime;
+        }
+      }, { passive: true });
+
+      // Sự kiện click/tap để tạo nhiều trái tim hơn
+      document.addEventListener('click', function(e) {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            createHeart(
+              e.clientX + (Math.random() - 0.5) * 30,
+              e.clientY + (Math.random() - 0.5) * 30
+            );
+          }, i * 50);
+        }
+      });
+
+      document.addEventListener('touchstart', function(e) {
+        const touch = e.touches[0];
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            createHeart(
+              touch.clientX + (Math.random() - 0.5) * 30,
+              touch.clientY + (Math.random() - 0.5) * 30
+            );
+          }, i * 50);
+        }
+      }, { passive: true });
+    </script>
+  </body>
+</html>
