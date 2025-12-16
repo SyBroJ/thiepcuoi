@@ -54,6 +54,12 @@
       type="text/javascript"
     ></script>
     <style>
+      /* Ẩn thanh scroll ngang */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
       .heart {
         position: fixed;
         font-size: 15px;
@@ -1708,7 +1714,7 @@
           <div class="ww-gift-section">
             <div class="container">
               <div class="col text-center mb-5">
-                <h6 style="font-family: 'Noto Serif KR', serif">
+                <h6 style="font-family: 'Noto Serif KR', serif; color: #C2185B;">
                   Khi ở bên nhau, chúng tôi là chính mình nhất<br />
                   và cùng nhau vẽ nên những ước mơ về tương lai.<br /><br />
 
@@ -1722,10 +1728,10 @@
                 </h6>
                 <h7
                   class="h7 text-center pb-3 ww-title"
-                  style="font-family: 'Noto Serif KR', serif"
+                  style="font-family: 'Noto Serif KR', serif; color: #C2185B;"
                   >Quà mừng đám cưới</h7
                 >
-                <h5 style="font-family: 'Noto Serif KR', serif">
+                <h5 style="font-family: 'Noto Serif KR', serif; color: #C2185B;">
                   Bank: @Thùy-Dung
                 </h5>
               </div>
@@ -1743,7 +1749,7 @@
     <script src="js/ekko-lightbox.min.js"></script>
 
     <div class="bottom_left">
-      <audio id="player" src="mus.mp3" autoplay loop></audio>
+      <audio id="player" src="mus.mp3" autoplay loop muted></audio>
       <div>
         <i
           id="music-icon"
@@ -1758,13 +1764,18 @@
       const player = document.getElementById('player');
       const musicIcon = document.getElementById('music-icon');
       let isPlaying = false;
+      let musicStarted = false;
 
       // Function to toggle music
       function toggleMusic() {
         if (player.paused) {
-          player.play();
-          musicIcon.style.color = '#d4a574';
-          isPlaying = true;
+          player.play().then(() => {
+            musicIcon.style.color = '#d4a574';
+            isPlaying = true;
+            musicStarted = true;
+          }).catch(err => {
+            console.log('Play failed:', err);
+          });
         } else {
           player.pause();
           musicIcon.style.color = '#fff';
@@ -1772,34 +1783,61 @@
         }
       }
 
-      // Try to autoplay when page loads
-      window.addEventListener('load', function() {
+      // Function to attempt playing music
+      function attemptPlay() {
+        if (musicStarted) return;
+
+        // Unmute and play
+        player.muted = false;
+        player.volume = 0.7;
+
         player.play().then(() => {
           musicIcon.style.color = '#d4a574';
           isPlaying = true;
-        }).catch(() => {
-          // Autoplay blocked, wait for user interaction
-          console.log('Autoplay blocked, waiting for user interaction');
+          musicStarted = true;
+          console.log('Music started successfully');
+        }).catch(err => {
+          console.log('Autoplay prevented:', err.message);
+          isPlaying = false;
+          // Keep trying on interaction
         });
-      });
-
-      // Auto play on first user interaction
-      function startMusicOnInteraction() {
-        if (!isPlaying) {
-          player.play().then(() => {
-            musicIcon.style.color = '#d4a574';
-            isPlaying = true;
-          }).catch(() => {});
-        }
-        // Remove listeners after first interaction
-        document.removeEventListener('click', startMusicOnInteraction);
-        document.removeEventListener('touchstart', startMusicOnInteraction);
-        document.removeEventListener('scroll', startMusicOnInteraction);
       }
 
-      document.addEventListener('click', startMusicOnInteraction);
-      document.addEventListener('touchstart', startMusicOnInteraction);
-      document.addEventListener('scroll', startMusicOnInteraction);
+      // Start muted autoplay immediately
+      player.muted = true;
+      player.play().catch(() => {});
+
+      // Then try to unmute after a short delay
+      setTimeout(() => {
+        attemptPlay();
+      }, 100);
+
+      setTimeout(attemptPlay, 500);
+      setTimeout(attemptPlay, 1000);
+
+      // Try to autoplay when page loads
+      window.addEventListener('load', attemptPlay);
+
+      // Try when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attemptPlay);
+      } else {
+        setTimeout(attemptPlay, 50);
+      }
+
+      // Auto play on ANY user interaction
+      function startMusicOnInteraction(e) {
+        if (!musicStarted) {
+          attemptPlay();
+        }
+      }
+
+      // Add listeners for multiple interaction types
+      const interactionEvents = ['click', 'touchstart', 'touchend', 'keydown', 'scroll', 'mousemove', 'mousedown'];
+
+      interactionEvents.forEach(eventType => {
+        document.addEventListener(eventType, startMusicOnInteraction, { once: true, passive: true });
+      });
 
       // ===== SCROLL ANIMATIONS =====
       let scrollTimeout;
