@@ -82,7 +82,521 @@
         }
       }
 
-      /* Countdown Timer Styles */
+      /* ========== ANIMATIONS ========== */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInBottom {
+        from {
+          opacity: 0;
+          transform: translateY(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .slide-in-left {
+        animation: slideInLeft 1s ease-out;
+      }
+
+      .slide-in-right {
+        animation: slideInRight 1s ease-out;
+      }
+
+      .zoom-in {
+        animation: zoomIn 0.6s ease-out;
+      }
+
+      /* Scroll-triggered animations */
+      .slide-in-from-left,
+      .slide-in-from-right,
+      .slide-in-from-bottom {
+        opacity: 0;
+        transition: all 0.8s ease-out;
+      }
+
+      .slide-in-from-left.visible {
+        opacity: 1;
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+
+      .slide-in-from-right.visible {
+        opacity: 1;
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+
+      .slide-in-from-bottom.visible {
+        opacity: 1;
+        animation: slideInBottom 0.8s ease-out forwards;
+      }
+
+      /* ========== COUPLE SECTION ========== */
+      .couple-section {
+        background: linear-gradient(135deg, #ffeef8 0%, #fff5f0 100%);
+        padding: 80px 0;
+        overflow: hidden;
+      }
+
+      .couple-card {
+        margin: 40px 0;
+        padding: 30px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .couple-card:hover,
+      .couple-card.touched {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Tối ưu cho điện thoại */
+      @media (hover: none) and (pointer: coarse) {
+        .couple-card:hover {
+          transform: translateY(0);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .couple-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .couple-content.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .couple-image-container {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .image-frame {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.5s ease;
+      }
+
+      .image-frame:hover {
+        transform: scale(1.05) rotate(2deg);
+      }
+
+      .couple-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .image-frame:hover .couple-img {
+        transform: scale(1.1);
+      }
+
+      .couple-info {
+        flex: 1;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .couple-label {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #d4a574;
+        margin-bottom: 20px;
+        letter-spacing: 3px;
+        font-family: 'Noto Serif KR', serif;
+      }
+
+      .couple-parents {
+        margin: 20px 0;
+        font-family: 'Noto Serif KR', serif;
+        line-height: 2;
+      }
+
+      .couple-parents p {
+        margin: 5px 0;
+        font-size: 1.1em;
+        color: #333;
+      }
+
+      .couple-avatar {
+        margin: 30px 0;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .couple-avatar img {
+        max-height: 120px;
+        width: auto;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+
+      .couple-name-script {
+        font-family: 'Great Vibes', cursive;
+        font-size: 3em;
+        color: #d4a574;
+        margin-top: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ========== EVENTS SECTION ========== */
+      .events-section {
+        background: linear-gradient(135deg, #fff9f5 0%, #ffe8e8 100%);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .events-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="50" opacity="0.03">❤</text></svg>') repeat;
+        pointer-events: none;
+      }
+
+      .event-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin: 30px auto;
+        max-width: 800px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border: 3px solid #f0f0f0;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .event-card:hover,
+      .event-card.touched {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        border-color: #d4a574;
+      }
+
+      /* Tối ưu cho điện thoại */
+      @media (hover: none) and (pointer: coarse) {
+        .event-card:hover {
+          transform: translateY(0);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+          border-color: #f0f0f0;
+        }
+      }
+
+      .event-card.main-event {
+        background: linear-gradient(135deg, #fff9f0 0%, #ffe8e8 100%);
+        border: 3px solid #d4a574;
+      }
+
+      .event-header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 20px;
+      }
+
+      .event-title {
+        font-family: 'Noto Serif KR', serif;
+        font-size: 2em;
+        font-weight: bold;
+        color: #333;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+      }
+
+      .couple-icon {
+        margin-bottom: 15px;
+        font-size: 3em;
+      }
+
+      .event-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+        padding: 20px 0;
+      }
+
+      .event-time {
+        text-align: center;
+      }
+
+      .time-large {
+        font-size: 4em;
+        font-weight: bold;
+        color: #d4a574;
+        line-height: 1;
+        font-family: 'Dosis', sans-serif;
+      }
+
+      .day-text {
+        font-size: 1.3em;
+        color: #666;
+        margin-top: 10px;
+        font-family: 'Noto Serif KR', serif;
+      }
+
+      .event-date {
+        text-align: center;
+      }
+
+      .date-parts {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .month, .year {
+        font-size: 1.5em;
+        color: #666;
+        font-family: 'Noto Serif KR', serif;
+      }
+
+      .date-number {
+        font-size: 5em;
+        font-weight: bold;
+        color: #333;
+        line-height: 1;
+        font-family: 'Dosis', sans-serif;
+      }
+
+      .lunar-date {
+        font-size: 1em;
+        color: #999;
+        font-style: italic;
+        margin-top: 10px;
+      }
+
+      /* Countdown for wedding ceremony */
+      .countdown-wedding {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #f0f0f0;
+        text-align: center;
+      }
+
+      .countdown-wedding h4 {
+        font-family: 'Noto Serif KR', serif;
+        color: #d4a574;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+      }
+
+      .countdown-display {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .count-item {
+        background: white;
+        border: 2px solid #d4a574;
+        border-radius: 15px;
+        padding: 20px 25px;
+        min-width: 100px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .count-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .count-num {
+        display: block;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #d4a574;
+        font-family: 'Dosis', sans-serif;
+        line-height: 1;
+      }
+
+      .count-label {
+        display: block;
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      /* ========== GALLERY SECTION ========== */
+      .gallery-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 20px 0;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      /* Hiệu ứng khi scroll đến ảnh */
+      .gallery-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Hiệu ứng khi ảnh visible - tự động zoom nhẹ */
+      .gallery-item.visible .image-wrapper img {
+        animation: imageReveal 0.8s ease-out forwards;
+      }
+
+      @keyframes imageReveal {
+        0% {
+          transform: scale(1.2);
+          filter: brightness(0.7);
+        }
+        100% {
+          transform: scale(1);
+          filter: brightness(1);
+        }
+      }
+
+      /* Hiệu ứng khi chạm/hover vào ảnh */
+      .gallery-item:hover,
+      .gallery-item:active,
+      .gallery-item.touched {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Tối ưu cho điện thoại - loại bỏ hover sticky */
+      @media (hover: none) and (pointer: coarse) {
+        .gallery-item:hover {
+          transform: translateY(0);
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .image-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+
+      .image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease, filter 0.5s ease;
+      }
+
+      /* Hiệu ứng zoom khi chạm/hover */
+      .gallery-item:hover .image-wrapper img,
+      .gallery-item:active .image-wrapper img {
+        transform: scale(1.15) rotate(2deg);
+      }
+
+      /* Bỏ overlay và icon + */
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(212, 165, 116, 0.3);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .gallery-item:hover .image-overlay,
+      .gallery-item:active .image-overlay {
+        opacity: 1;
+      }
+
+      /* Ẩn icon + */
+      .image-overlay i {
+        display: none;
+      }
+
+      /* ========== ORIGINAL COUNTDOWN ========== */
       .countdown-container {
         display: flex;
         justify-content: center;
@@ -135,7 +649,157 @@
         font-family: 'Noto Serif KR', serif;
       }
 
+      /* ========== FLOATING PETALS ========== */
+      .petal {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: radial-gradient(circle, #ffc0cb, #ffb6c1);
+        border-radius: 50%;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 1;
+        animation: fall linear forwards;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ========== SPARKLE EFFECT ========== */
+      @keyframes sparkle {
+        0%, 100% { opacity: 0; transform: scale(0); }
+        50% { opacity: 1; transform: scale(1); }
+      }
+
+      .sparkle {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8);
+        pointer-events: none;
+        z-index: 9998;
+        animation: sparkle 1.5s ease-in-out infinite;
+      }
+
+      /* ========== GRADIENT TEXT ANIMATION ========== */
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .ww-title.fade-in-up {
+        background: linear-gradient(45deg, #d4a574, #f4d4a4, #d4a574);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: fadeInUp 1s ease-out, gradient 3s ease infinite;
+      }
+
+      /* ========== PULSE EFFECT FOR IMPORTANT ELEMENTS ========== */
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+
+      .main-event {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      /* ========== SHINE EFFECT ON HOVER ========== */
+      .couple-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          transparent 40%,
+          rgba(255, 255, 255, 0.3) 50%,
+          transparent 60%,
+          transparent
+        );
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        transition: transform 0.6s;
+      }
+
+      .couple-card:hover::before {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+
+      /* ========== RIBBON DECORATION ========== */
+      .event-card::after {
+        content: '♥';
+        position: absolute;
+        top: -15px;
+        right: 30px;
+        background: #d4a574;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        line-height: 50px;
+        text-align: center;
+        font-size: 1.5em;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        animation: bounce 2s infinite;
+        z-index: 10;
+      }
+
+      /* ========== STAGGERED GALLERY ANIMATION ========== */
+      .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+      .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+      .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+      .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+      .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+      .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+      .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+      .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+      .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+      .gallery-item:nth-child(10) { animation-delay: 1s; }
+
+      /* ========== RESPONSIVE ========== */
       @media (max-width: 768px) {
+        .couple-content,
+        .couple-content.reverse {
+          flex-direction: column;
+        }
+
+        .couple-image-container {
+          min-width: 100%;
+        }
+
+        .couple-name-script {
+          font-size: 2em;
+        }
+
+        .event-card {
+          padding: 25px;
+        }
+
+        .time-large {
+          font-size: 3em;
+        }
+
+        .date-number {
+          font-size: 3.5em;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
         .countdown-item {
           min-width: 70px;
           padding: 15px 20px;
@@ -151,6 +815,15 @@
 
         .countdown-box {
           gap: 10px;
+        }
+
+        .count-item {
+          min-width: 80px;
+          padding: 15px 20px;
+        }
+
+        .count-num {
+          font-size: 2em;
         }
       }
     </style>
@@ -242,201 +915,268 @@
             </div>
           </nav>
         </div>
-        <div class="ww-section" id="couple">
+        <div class="ww-section couple-section" id="couple">
           <div class="container">
             <h2
-              class="h1 text-center pb-3 ww-title"
-              style="font-family: 'Noto Serif KR', serif"
+              class="h1 text-center pb-5 ww-title fade-in-up"
+              style="font-family: 'Great Vibes', cursive; font-size: 3.5em; color: #d4a574;"
             >
-              Chú rể & Cô dâu
+              Trân trọng kính mời
             </h2>
-            <div class="row text-center">
-              <div class="col-md-6">
-                <div class="mt-3">
-                  <h3
-                    class="h2 ww-title"
-                    style="
-                      font-family: 'Sunflower', sans-serif;
-                      font-size: 1.5em;
-                    "
-                  >
-                    NGUYỄN VĂN SỸ
-                  </h3>
-                  <img alt="Chú rể" class="img-fluid" src="images/pic9.jpg" />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mt-3">
-                  <h3
-                    class="h2 ww-title"
-                    style="
-                      font-family: 'Sunflower', sans-serif;
-                      font-size: 1.5em;
-                    "
-                  >
-                    NGUYỄN THÙY DUNG
-                  </h3>
-                  <img alt="Cô dâu" class="img-fluid" src="images/pic8.jpg" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ww-section bg-light" id="events">
-          <div class="container ww-wedding-event">
-            <h2
-              class="h1 text-center pb-3 ww-title"
-              style="font-family: 'Noto Serif KR', serif"
-            >
-              Chúng tôi trân trọng mời bạn!
-            </h2>
-            <div class="row">
-              <div class="col-md-7 col-sm-12">
-                <div class="my-3">
-                  <div class="h4">Wild Pink</div>
-                  <ul>
-                    <li>
-                      <i class="text-muted fas fa-map-marker-alt"></i>
-                      <span class="pl-2 text-muted"
-                        >248 Broad Ave, Palisades Park, NJ 07650</span
-                      >
-                    </li>
 
-                    <li class="pt-2">
-                      <i class="text-muted far fa-calendar-alt"></i>
-                      <span class="pl-2 text-muted"
-                        >2026. 01. 17. THỨ 7 11:30 AM</span
-                      >
-                    </li>
-                    <br />
-                    <a
-                      href="https://www.google.com/maps/place/wild+pink/@40.8471026,-74.0003605,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2f72ec67aa247:0x6d7af0abd2ca2794!8m2!3d40.8470986!4d-73.9981718"
-                    >
-                      <img
-                        alt="google-map"
-                        class="map-icon"
-                        id="google-map"
-                        src="images/map/google-map.png"
-                      />
-                    </a>
-                  </ul>
+            <!-- Groom Section -->
+            <div class="couple-card groom-card slide-in-left">
+              <div class="couple-content">
+                <div class="couple-image-container">
+                  <div class="image-frame">
+                    <img alt="Chú rể" class="couple-img" src="images/pic9.jpg" />
+                  </div>
+                </div>
+                <div class="couple-info">
+                  <div class="couple-label">NHÀ TRAI:</div>
+                  <div class="couple-parents">
+                    <p>ÔNG: NGUYỄN DỎ</p>
+                    <p>BÀ: HUYNH THI XE</p>
+                  </div>
+                  <div class="couple-avatar">
+                    <img src="images/groom-avatar.png" alt="Chú rể avatar" onerror="this.style.display='none'" />
+                  </div>
+                  <div class="couple-name-script">Văn Sỹ</div>
                 </div>
               </div>
-              <div class="col-md-5 col-sm-12">
-                <div class="my-3">
-                  <img
-                    alt="Tiệc cưới"
-                    class="img-fluid"
-                    src="images/wedding-party.jpg"
-                  />
+            </div>
+
+            <!-- Bride Section -->
+            <div class="couple-card bride-card slide-in-right">
+              <div class="couple-content reverse">
+                <div class="couple-info">
+                  <div class="couple-label">NHÀ GÁI:</div>
+                  <div class="couple-parents">
+                    <p>ÔNG: NGUYỄN VĂN HÀO</p>
+                    <p>BÀ: HOÀNG THỊ DẬU</p>
+                  </div>
+                  <div class="couple-avatar">
+                    <img src="images/bride-avatar.png" alt="Cô dâu avatar" onerror="this.style.display='none'" />
+                  </div>
+                  <div class="couple-name-script">Thùy Dung</div>
+                </div>
+                <div class="couple-image-container">
+                  <div class="image-frame">
+                    <img alt="Cô dâu" class="couple-img" src="images/pic8.jpg" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="ww-section" id="gallery">
+        <div class="ww-section events-section" id="events">
+          <div class="container">
+            <h2
+              class="h1 text-center pb-5 ww-title fade-in-up"
+              style="font-family: 'Great Vibes', cursive; font-size: 3.5em; color: #d4a574;"
+            >
+              Thông tin tiệc cưới
+            </h2>
+
+            <!-- Groom's Wedding Reception -->
+            <div class="event-card slide-in-from-left">
+              <div class="event-header">
+                <h3 class="event-title">TIỆC CƯỚI NHÀ TRAI</h3>
+              </div>
+              <div class="event-details">
+                <div class="event-time">
+                  <div class="time-large">11:30</div>
+                  <div class="day-text">Thứ Bảy</div>
+                </div>
+                <div class="event-date">
+                  <div class="date-parts">
+                    <span class="month">Tháng 1</span>
+                    <span class="date-number">17</span>
+                    <span class="year">2026</span>
+                  </div>
+                  <div class="lunar-date">(Tức ngày 29, tháng 11, năm Ất Tỵ)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bride's Wedding Reception -->
+            <div class="event-card slide-in-from-right">
+              <div class="event-header">
+                <h3 class="event-title">TIỆC CƯỚI NHÀ GÁI</h3>
+              </div>
+              <div class="event-details">
+                <div class="event-time">
+                  <div class="time-large">11:00</div>
+                  <div class="day-text">Thứ Tư</div>
+                </div>
+                <div class="event-date">
+                  <div class="date-parts">
+                    <span class="month">Tháng 1</span>
+                    <span class="date-number">14</span>
+                    <span class="year">2026</span>
+                  </div>
+                  <div class="lunar-date">(Tức ngày 26, tháng 11, năm Ất Tỵ)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Wedding Ceremony -->
+            <div class="event-card main-event slide-in-from-bottom">
+              <div class="event-header">
+                <div class="couple-icon">
+                  <img src="images/wedding-couple-icon.jpg" alt="Wedding couple" onerror="this.innerHTML='👰🤵'" />
+                </div>
+                <h3 class="event-title">LỄ THÀNH HÔN</h3>
+              </div>
+              <div class="event-details">
+                <div class="event-time">
+                  <div class="time-large">11:00</div>
+                  <div class="day-text">Thứ 7</div>
+                </div>
+                <div class="event-date">
+                  <div class="date-parts">
+                    <span class="month">Tháng 1</span>
+                    <span class="date-number">17</span>
+                    <span class="year">2026</span>
+                  </div>
+                  <div class="lunar-date">(Tức ngày 29, tháng 11, năm Ất Tỵ)</div>
+                </div>
+              </div>
+
+              <div class="countdown-wedding">
+                <h4>Hôn lễ sẽ diễn ra sau:</h4>
+                <div class="countdown-display">
+                  <div class="count-item">
+                    <span class="count-num" id="days2">05</span>
+                    <span class="count-label">Ngày</span>
+                  </div>
+                  <div class="count-item">
+                    <span class="count-num" id="hours2">02</span>
+                    <span class="count-label">Giờ</span>
+                  </div>
+                  <div class="count-item">
+                    <span class="count-num" id="minutes2">20</span>
+                    <span class="count-label">Phút</span>
+                  </div>
+                  <div class="count-item">
+                    <span class="count-num" id="seconds2">01</span>
+                    <span class="count-label">Giây</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ww-section gallery-section" id="gallery">
           <div class="ww-photo-gallery">
             <div class="container">
               <h2
-                class="h1 text-center pb-3 ww-title"
-                style="font-family: 'Noto Serif KR', serif"
+                class="h1 text-center pb-5 ww-title fade-in-up"
+                style="font-family: 'Great Vibes', cursive; font-size: 3.5em; color: #d4a574;"
               >
                 Thư viện ảnh
               </h2>
               <div class="ww-gallery">
-                <div class="card-columns">
-                  <div
-                    class="card"
-                    data-groups='["wedding","ceremony","party"]'
-                  >
+                <div class="gallery-grid">
+                  <div class="gallery-item zoom-in" data-groups='["wedding","ceremony","party"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 6"
-                        class="img-fluid"
-                        src="images/pic7.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 6" class="img-fluid" src="images/pic7.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 7"
-                        class="img-fluid"
-                        src="images/pic5.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 7" class="img-fluid" src="images/pic5.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 7"
-                        class="img-fluid"
-                        src="images/pic10.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 7" class="img-fluid" src="images/pic10.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 3"
-                        class="img-fluid"
-                        src="images/pic3.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 3" class="img-fluid" src="images/pic3.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 4"
-                        class="img-fluid"
-                        src="images/pic4.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 4" class="img-fluid" src="images/pic4.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 5"
-                        class="img-fluid"
-                        src="images/pic6.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 5" class="img-fluid" src="images/pic6.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  
-                  <div class="card" data-groups='["party","wedding"]'>
+
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 7"
-                        class="img-fluid"
-                        src="images/pic11.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 7" class="img-fluid" src="images/pic11.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 7"
-                        class="img-fluid"
-                        src="images/pic12.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 7" class="img-fluid" src="images/pic12.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 7"
-                        class="img-fluid"
-                        src="images/pic13.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 7" class="img-fluid" src="images/pic13.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
-                  <div class="card" data-groups='["party","wedding"]'>
+                  <div class="gallery-item zoom-in" data-groups='["party","wedding"]'>
                     <a data-gallery="ww-gallery" data-toggle="lightbox">
-                      <img
-                        alt="Gallery Pic 2"
-                        class="img-fluid"
-                        src="images/pic2.jpg"
-                      />
+                      <div class="image-wrapper">
+                        <img alt="Gallery Pic 2" class="img-fluid" src="images/pic2.jpg" />
+                        <div class="image-overlay">
+                          <i class="fa fa-search-plus"></i>
+                        </div>
+                      </div>
                     </a>
                   </div>
                 </div>
@@ -473,28 +1213,6 @@
                 <h5 style="font-family: 'Noto Serif KR', serif">
                   Bank: @Thùy-Dung
                 </h5>
-
-                <!-- Countdown Timer -->
-                <div class="countdown-container mt-5">
-                  <div class="countdown-box">
-                    <div class="countdown-item">
-                      <span class="countdown-number" id="days">0</span>
-                      <span class="countdown-label">Ngày</span>
-                    </div>
-                    <div class="countdown-item">
-                      <span class="countdown-number" id="hours">0</span>
-                      <span class="countdown-label">Giờ</span>
-                    </div>
-                    <div class="countdown-item">
-                      <span class="countdown-number" id="minutes">0</span>
-                      <span class="countdown-label">Phút</span>
-                    </div>
-                    <div class="countdown-item">
-                      <span class="countdown-number" id="seconds">0</span>
-                      <span class="countdown-label">Giây</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -520,13 +1238,94 @@
     </div>
 
     <script>
-      // ===== COUNTDOWN TIMER =====
-      // Ngày đám cưới: 2026. 01. 17. 11:30 AM
-      const weddingDate = new Date('2026-01-17T11:30:00').getTime();
+      // ===== SCROLL ANIMATIONS =====
+      function checkScroll() {
+        const elements = document.querySelectorAll('.slide-in-from-left, .slide-in-from-right, .slide-in-from-bottom, .zoom-in, .gallery-item');
 
-      function updateCountdown() {
+        elements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          const windowHeight = window.innerHeight;
+
+          // Element is in viewport
+          if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
+            element.classList.add('visible');
+          }
+        });
+      }
+
+      // Check on scroll
+      window.addEventListener('scroll', checkScroll);
+      // Check on load
+      window.addEventListener('load', checkScroll);
+      // Initial check
+      checkScroll();
+
+      // ===== TOUCH SUPPORT FOR ALL INTERACTIVE ELEMENTS =====
+      // Thêm hiệu ứng cho cảm ứng điện thoại
+      document.addEventListener('DOMContentLoaded', function() {
+        // Gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+          item.addEventListener('touchstart', function(e) {
+            this.classList.add('touched');
+          }, { passive: true });
+
+          item.addEventListener('touchend', function(e) {
+            setTimeout(() => {
+              this.classList.remove('touched');
+            }, 300);
+          }, { passive: true });
+
+          item.addEventListener('touchcancel', function(e) {
+            this.classList.remove('touched');
+          }, { passive: true });
+        });
+
+        // Couple cards
+        const coupleCards = document.querySelectorAll('.couple-card');
+        coupleCards.forEach(card => {
+          card.addEventListener('touchstart', function(e) {
+            this.classList.add('touched');
+          }, { passive: true });
+
+          card.addEventListener('touchend', function(e) {
+            setTimeout(() => {
+              this.classList.remove('touched');
+            }, 300);
+          }, { passive: true });
+
+          card.addEventListener('touchcancel', function(e) {
+            this.classList.remove('touched');
+          }, { passive: true });
+        });
+
+        // Event cards
+        const eventCards = document.querySelectorAll('.event-card');
+        eventCards.forEach(card => {
+          card.addEventListener('touchstart', function(e) {
+            this.classList.add('touched');
+          }, { passive: true });
+
+          card.addEventListener('touchend', function(e) {
+            setTimeout(() => {
+              this.classList.remove('touched');
+            }, 300);
+          }, { passive: true });
+
+          card.addEventListener('touchcancel', function(e) {
+            this.classList.remove('touched');
+          }, { passive: true });
+        });
+      });
+
+      // ===== COUNTDOWN TIMER FOR CEREMONY =====
+      // Ngày lễ thành hôn: 2025. 12. 21. 13:00
+      const ceremonyDate = new Date('2026-01-17T11:00:00').getTime();
+
+      function updateCeremonyCountdown() {
         const now = new Date().getTime();
-        const distance = weddingDate - now;
+        const distance = ceremonyDate - now;
 
         // Tính toán thời gian
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -534,25 +1333,29 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Cập nhật hiển thị
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
+        // Cập nhật hiển thị với số có 2 chữ số
+        if (document.getElementById('days2')) {
+          document.getElementById('days2').textContent = String(days).padStart(2, '0');
+          document.getElementById('hours2').textContent = String(hours).padStart(2, '0');
+          document.getElementById('minutes2').textContent = String(minutes).padStart(2, '0');
+          document.getElementById('seconds2').textContent = String(seconds).padStart(2, '0');
+        }
 
         // Nếu đếm ngược kết thúc
         if (distance < 0) {
-          document.getElementById('days').textContent = '0';
-          document.getElementById('hours').textContent = '0';
-          document.getElementById('minutes').textContent = '0';
-          document.getElementById('seconds').textContent = '0';
+          if (document.getElementById('days2')) {
+            document.getElementById('days2').textContent = '00';
+            document.getElementById('hours2').textContent = '00';
+            document.getElementById('minutes2').textContent = '00';
+            document.getElementById('seconds2').textContent = '00';
+          }
         }
       }
 
       // Cập nhật mỗi giây
-      setInterval(updateCountdown, 1000);
+      setInterval(updateCeremonyCountdown, 1000);
       // Chạy ngay lập tức
-      updateCountdown();
+      updateCeremonyCountdown();
 
       // ===== HEART ANIMATION =====
       // Hàm tạo trái tim
@@ -623,6 +1426,130 @@
           }, i * 50);
         }
       }, { passive: true });
+
+      // ===== FLOATING PETALS =====
+      function createPetal() {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+
+        // Random starting position
+        petal.style.left = Math.random() * window.innerWidth + 'px';
+        petal.style.top = '-20px';
+
+        // Random size
+        const size = Math.random() * 8 + 6;
+        petal.style.width = size + 'px';
+        petal.style.height = size + 'px';
+
+        // Random animation duration
+        const duration = Math.random() * 10 + 10;
+        petal.style.animationDuration = duration + 's';
+
+        // Random delay
+        const delay = Math.random() * 5;
+        petal.style.animationDelay = delay + 's';
+
+        document.body.appendChild(petal);
+
+        // Remove after animation
+        setTimeout(() => {
+          petal.remove();
+        }, (duration + delay) * 1000);
+      }
+
+      // Create petals periodically
+      setInterval(createPetal, 300);
+
+      // Create initial petals
+      for (let i = 0; i < 20; i++) {
+        setTimeout(createPetal, i * 200);
+      }
+
+      // ===== SPARKLES =====
+      function createSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+
+        // Random position
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+
+        // Random delay
+        sparkle.style.animationDelay = Math.random() * 2 + 's';
+
+        document.body.appendChild(sparkle);
+
+        // Remove after a while
+        setTimeout(() => {
+          sparkle.remove();
+        }, 3000);
+      }
+
+      // Create sparkles periodically
+      setInterval(createSparkle, 500);
+
+      // Create initial sparkles
+      for (let i = 0; i < 30; i++) {
+        setTimeout(createSparkle, i * 100);
+      }
+
+      // ===== SMOOTH SCROLL FOR NAVIGATION =====
+      document.querySelectorAll('a.smooth-scroll').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // ===== PARALLAX EFFECT ON SCROLL =====
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.couple-img');
+
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.05;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+
+      // ===== NUMBER ANIMATION FOR COUNTDOWN =====
+      function animateNumber(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const current = Math.floor(progress * (end - start) + start);
+          element.textContent = String(current).padStart(2, '0');
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      // ===== CONFETTI ON MAIN EVENT HOVER =====
+      const mainEventCard = document.querySelector('.main-event');
+      if (mainEventCard) {
+        mainEventCard.addEventListener('mouseenter', function() {
+          for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+              createHeart(
+                this.getBoundingClientRect().left + Math.random() * this.offsetWidth,
+                this.getBoundingClientRect().top + Math.random() * this.offsetHeight
+              );
+            }, i * 50);
+          }
+        });
+      }
     </script>
   </body>
 </html>
