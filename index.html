@@ -223,8 +223,8 @@
 
       .couple-image-container {
         flex: 1;
-        min-width: 200px;
-        max-width: 300px;
+        min-width: 250px;
+        max-width: 400px;
       }
 
       .image-frame {
@@ -241,42 +241,44 @@
 
       .couple-img {
         width: 100%;
-        height: 320px;
+        height: 420px;
         object-fit: cover;
         display: block;
-        transition: transform 0.5s ease;
+        transition: none;
         opacity: 0;
+        transform: translateX(0);
+        will-change: transform, opacity;
       }
 
-      /* Hiệu ứng chạy từ trái cho nhà trai */
-      .groom-card .couple-img {
-        animation: slideFromLeft 1s ease-out forwards;
+      /* Hiệu ứng chạy từ trái cho nhà trai - chỉ khi visible */
+      .groom-card .couple-img.animate {
+        animation: slideFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       }
 
-      /* Hiệu ứng chạy từ phải cho nhà gái */
-      .bride-card .couple-img {
-        animation: slideFromRight 1s ease-out forwards;
+      /* Hiệu ứng chạy từ phải cho nhà gái - chỉ khi visible */
+      .bride-card .couple-img.animate {
+        animation: slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       }
 
       @keyframes slideFromLeft {
-        from {
+        0% {
           opacity: 0;
-          transform: translateX(-100px);
+          transform: translate3d(-80px, 0, 0);
         }
-        to {
+        100% {
           opacity: 1;
-          transform: translateX(0);
+          transform: translate3d(0, 0, 0);
         }
       }
 
       @keyframes slideFromRight {
-        from {
+        0% {
           opacity: 0;
-          transform: translateX(100px);
+          transform: translate3d(80px, 0, 0);
         }
-        to {
+        100% {
           opacity: 1;
-          transform: translateX(0);
+          transform: translate3d(0, 0, 0);
         }
       }
 
@@ -592,6 +594,88 @@
         margin-top: 5px;
         text-transform: uppercase;
         letter-spacing: 1px;
+      }
+
+      /* ========== LOCATION SECTION ========== */
+      .location-section {
+        padding: 50px 0;
+        background: linear-gradient(135deg, #fff5f0 0%, #ffeef8 100%);
+      }
+
+      .location-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 600px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .location-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .location-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+      }
+
+      .location-title {
+        font-family: 'Noto Serif KR', serif;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+      }
+
+      .location-address {
+        font-family: 'Noto Serif KR', serif;
+        font-size: 1em;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .location-map {
+        width: 100%;
+        height: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .location-map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .direction-btn {
+        display: inline-block;
+        background: white;
+        color: #333;
+        padding: 15px 40px;
+        border-radius: 30px;
+        font-family: 'Noto Serif KR', serif;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-decoration: none;
+        border: 2px solid #d4a574;
+        transition: all 0.3s ease;
+        letter-spacing: 2px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .direction-btn:hover {
+        background: #d4a574;
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(212, 165, 116, 0.4);
       }
 
       /* ========== GALLERY SECTION ========== */
@@ -953,13 +1037,13 @@
         }
 
         .couple-image-container {
-          flex: 0 0 100px;
-          min-width: 100px;
-          max-width: 100px;
+          flex: 0 0 130px;
+          min-width: 130px;
+          max-width: 130px;
         }
 
         .couple-img {
-          height: 120px;
+          height: 160px;
         }
 
         .couple-info {
@@ -1065,6 +1149,35 @@
         .countdown-wedding h4 {
           font-size: 0.95em;
           margin-bottom: 10px;
+        }
+
+        /* Tối ưu location cho mobile */
+        .location-section {
+          padding: 20px 0;
+        }
+
+        .location-card {
+          padding: 20px;
+          margin: 15px auto;
+        }
+
+        .location-title {
+          font-size: 1.3em;
+          letter-spacing: 2px;
+        }
+
+        .location-address {
+          font-size: 0.85em;
+        }
+
+        .location-map {
+          height: 250px;
+          margin: 15px 0;
+        }
+
+        .direction-btn {
+          padding: 12px 30px;
+          font-size: 0.95em;
         }
 
         /* Tối ưu gallery cho mobile */
@@ -1173,12 +1286,12 @@
             "
           >
             <div class="container ww-announcement-container">
-              <p class="ww-couple-name ww-title" style="font-size: 4em">
-                Sỹ
-              </p>
-              <p class="ww-couple-name ww-title" style="font-size: 3em">&</p>
-              <p class="ww-couple-name ww-title" style="font-size: 4em">Dung</p>
-              <br /><br /><br /><br /><br /><br />
+              <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <span class="ww-couple-name ww-title" style="font-size: 4em">Sỹ</span>
+                <span class="ww-couple-name ww-title" style="font-size: 3em">&</span>
+                <span class="ww-couple-name ww-title" style="font-size: 4em">Dung</span>
+              </div>
+              <br /><br /><br /><br />
               <p
                 class="h2 mt-5 ww-title"
                 style="font-family: 'Gugi', cursive; font-size: 1em"
@@ -1390,6 +1503,51 @@
             </div>
           </div>
         </div>
+
+        <!-- ========== LOCATION SECTION ========== -->
+        <div class="ww-section location-section" id="location">
+          <div class="container">
+            <h2
+              class="h1 text-center pb-5 ww-title fade-in-up"
+              style="font-family: 'Great Vibes', cursive; font-size: 3.5em; color: #d4a574;"
+            >
+              🗺️ Địa điểm tổ chức
+            </h2>
+
+            <!-- Nhà Trai -->
+            <div class="location-card slide-in-from-left">
+              <h3 class="location-title">NHÀ TRAI</h3>
+              <p class="location-address">
+                THÔN 5 - PHÚ VINH - TP HUẾ
+              </p>
+
+              <div class="location-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1609.0310375599238!2d107.79602511244978!3d16.42774772297371!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDI1JzQxLjAiTiAxMDfCsDQ3JzQ5LjEiRQ!5e0!3m2!1svi!2sjp!4v1765870574168!5m2!1svi!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+
+              <a href="https://maps.app.goo.gl/RGufuLHo6NsUbnSN8" target="_blank" class="direction-btn">
+                XEM CHỈ ĐƯỜNG
+              </a>
+            </div>
+
+            <!-- Nhà Gái -->
+            <div class="location-card slide-in-from-right">
+              <h3 class="location-title">NHÀ GÁI</h3>
+              <p class="location-address">
+                ĐOÀI ĐÔNG - P VỊ KHÊ - TỈNH NINH BÌNH
+              </p>
+
+              <div class="location-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1322.2827822598167!2d106.20098047729364!3d20.38369436246042!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDIzJzAxLjciTiAxMDbCsDEyJzA2LjgiRQ!5e0!3m2!1svi!2sjp!4v1765870340346!5m2!1svi!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+
+              <a href="https://maps.app.goo.gl/aSsKtuJSrzPweBxT8" target="_blank" class="direction-btn">
+                XEM CHỈ ĐƯỜNG
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="ww-section gallery-section" id="gallery">
           <div class="ww-photo-gallery">
             <div class="container">
@@ -1644,23 +1802,52 @@
       document.addEventListener('scroll', startMusicOnInteraction);
 
       // ===== SCROLL ANIMATIONS =====
+      let scrollTimeout;
+      let ticking = false;
+
       function checkScroll() {
         const elements = document.querySelectorAll('.slide-in-from-left, .slide-in-from-right, .slide-in-from-bottom, .zoom-in, .gallery-item, .love-quote');
+        const coupleImages = document.querySelectorAll('.couple-img');
+        const windowHeight = window.innerHeight;
 
         elements.forEach(element => {
+          if (element.classList.contains('visible')) return; // Skip if already visible
+
           const elementTop = element.getBoundingClientRect().top;
           const elementBottom = element.getBoundingClientRect().bottom;
-          const windowHeight = window.innerHeight;
 
           // Element is in viewport
           if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
             element.classList.add('visible');
           }
         });
+
+        // Check couple images animation
+        coupleImages.forEach(img => {
+          if (img.classList.contains('animate')) return; // Skip if already animated
+
+          const imgTop = img.getBoundingClientRect().top;
+          const imgBottom = img.getBoundingClientRect().bottom;
+
+          // Image is in viewport - trigger animation
+          if (imgTop < windowHeight * 0.85 && imgBottom > 0) {
+            img.classList.add('animate');
+          }
+        });
+
+        ticking = false;
       }
 
-      // Check on scroll
-      window.addEventListener('scroll', checkScroll);
+      // Throttle scroll events using requestAnimationFrame
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(checkScroll);
+          ticking = true;
+        }
+      }
+
+      // Check on scroll with throttle
+      window.addEventListener('scroll', onScroll, { passive: true });
       // Check on load
       window.addEventListener('load', checkScroll);
       // Initial check
