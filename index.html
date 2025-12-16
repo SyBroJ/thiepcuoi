@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Đám cưới Văn Sỹ & Thùy Dung</title>
+    <title>Đám cưới Sỹ & Dung</title>
     <meta content="Chào mừng bạn đến với đám cưới của Văn Sỹ & Thùy Dung" name="description" />
     <meta property="og:image" content="images/pic5.jpg" />
     <meta property="fb:admins" content="Soonkwon.Justin.Hwang" />
@@ -56,12 +56,12 @@
     <style>
       .heart {
         position: fixed;
-        font-size: 30px;
+        font-size: 15px;
         color: #ff1744;
         pointer-events: none;
         z-index: 9999;
         animation: float-up 3s ease-in-out forwards;
-        text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+        text-shadow: 0 0 5px rgba(255, 23, 68, 0.5);
       }
 
       @keyframes float-up {
@@ -70,15 +70,15 @@
           transform: translateY(0) rotate(0deg) scale(0);
         }
         10% {
-          transform: translateY(-10px) rotate(15deg) scale(1);
+          transform: translateY(-10px) rotate(15deg) scale(0.8);
         }
         50% {
           opacity: 1;
-          transform: translateY(-100px) rotate(-15deg) scale(1.2);
+          transform: translateY(-80px) rotate(-15deg) scale(1);
         }
         100% {
           opacity: 0;
-          transform: translateY(-200px) rotate(30deg) scale(0.5);
+          transform: translateY(-150px) rotate(30deg) scale(0.3);
         }
       }
 
@@ -241,9 +241,43 @@
 
       .couple-img {
         width: 100%;
-        height: auto;
+        height: 320px;
+        object-fit: cover;
         display: block;
         transition: transform 0.5s ease;
+        opacity: 0;
+      }
+
+      /* Hiệu ứng chạy từ trái cho nhà trai */
+      .groom-card .couple-img {
+        animation: slideFromLeft 1s ease-out forwards;
+      }
+
+      /* Hiệu ứng chạy từ phải cho nhà gái */
+      .bride-card .couple-img {
+        animation: slideFromRight 1s ease-out forwards;
+      }
+
+      @keyframes slideFromLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideFromRight {
+        from {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
 
       .image-frame:hover .couple-img {
@@ -376,6 +410,14 @@
       .couple-icon {
         margin-bottom: 10px;
         font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .couple-icon img {
+        max-width: 80px;
+        height: auto;
       }
 
       .event-details {
@@ -866,17 +908,17 @@
       .event-card::after {
         content: '♥';
         position: absolute;
-        top: -15px;
-        right: 30px;
+        top: -10px;
+        right: 15px;
         background: #d4a574;
         color: white;
-        width: 50px;
-        height: 50px;
+        width: 25px;
+        height: 25px;
         border-radius: 50%;
-        line-height: 50px;
+        line-height: 25px;
         text-align: center;
-        font-size: 1.5em;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-size: 0.75em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         animation: bounce 2s infinite;
         z-index: 10;
       }
@@ -885,22 +927,22 @@
       @media (max-width: 768px) {
         /* Tối ưu heading */
         .h1.ww-title {
-          font-size: 2em !important;
-          padding-bottom: 20px !important;
+          font-size: 1.6em !important;
+          padding-bottom: 15px !important;
         }
 
         /* Tối ưu couple section - Giữ layout ngang trên mobile */
         .couple-section {
-          padding: 30px 0;
+          padding: 20px 0;
         }
 
         .couple-card {
-          margin: 15px 0;
-          padding: 12px;
+          margin: 10px 0;
+          padding: 10px;
         }
 
         .couple-content {
-          gap: 12px;
+          gap: 10px;
         }
 
         /* Không stack vertical - giữ layout ngang */
@@ -911,60 +953,137 @@
         }
 
         .couple-image-container {
-          flex: 0 0 110px;
-          min-width: 110px;
-          max-width: 110px;
+          flex: 0 0 100px;
+          min-width: 100px;
+          max-width: 100px;
+        }
+
+        .couple-img {
+          height: 120px;
         }
 
         .couple-info {
           flex: 1;
           min-width: auto;
-          padding: 5px;
+          padding: 0;
         }
 
         .couple-label {
-          font-size: 0.8em;
-          margin-bottom: 8px;
+          font-size: 0.7em;
+          margin-bottom: 5px;
           letter-spacing: 1px;
         }
 
         .couple-parents {
-          margin: 8px 0;
-          line-height: 1.5;
+          margin: 5px 0;
+          line-height: 1.4;
         }
 
         .couple-parents p {
-          margin: 3px 0;
-          font-size: 0.75em;
+          margin: 2px 0;
+          font-size: 0.65em;
         }
 
         .couple-avatar {
-          margin: 12px 0;
-          height: 60px;
+          margin: 8px 0;
+          height: 45px;
         }
 
         .couple-avatar img {
-          max-height: 60px;
+          max-height: 45px;
         }
 
         .couple-name-script {
-          font-size: 1.4em;
-          margin-top: 8px;
+          font-size: 1.2em;
+          margin-top: 5px;
+        }
+
+        /* Tối ưu event section */
+        .events-section {
+          padding: 20px 0;
+        }
+
+        .event-card {
+          padding: 15px;
+          margin: 10px auto;
+        }
+
+        .event-header {
+          margin-bottom: 10px;
+          padding-bottom: 8px;
+        }
+
+        .event-title {
+          font-size: 1em;
+          letter-spacing: 2px;
+        }
+
+        .couple-icon {
+          margin-bottom: 8px;
+          font-size: 1.5em;
+        }
+
+        .couple-icon img {
+          max-width: 60px;
+        }
+
+        .event-details {
+          gap: 20px;
+          padding: 8px 0;
+        }
+
+        .time-large {
+          font-size: 2em;
+        }
+
+        .day-text {
+          font-size: 0.85em;
+          margin-top: 3px;
+        }
+
+        .date-number {
+          font-size: 2.5em;
+        }
+
+        .month, .year {
+          font-size: 0.95em;
+        }
+
+        .date-parts {
+          gap: 10px;
+        }
+
+        .lunar-date {
+          font-size: 0.7em;
+        }
+
+        .countdown-wedding {
+          margin-top: 15px;
+          padding-top: 12px;
+        }
+
+        .countdown-wedding h4 {
+          font-size: 0.95em;
+          margin-bottom: 10px;
         }
 
         /* Tối ưu gallery cho mobile */
+        .gallery-section {
+          padding: 20px 0;
+        }
+
         .gallery-grid {
-          gap: 10px;
+          gap: 8px;
           padding: 5px 0;
         }
 
         .gallery-row {
-          gap: 10px;
+          gap: 8px;
         }
 
         .gallery-item {
-          min-height: 150px;
-          border-radius: 8px;
+          min-height: 120px;
+          border-radius: 6px;
         }
 
         /* Stack 2 cột trên mobile cho row có nhiều ảnh */
@@ -973,39 +1092,61 @@
         }
 
         .gallery-row.three-equal .gallery-item {
-          flex: 0 0 calc(50% - 5px);
+          flex: 0 0 calc(50% - 4px);
         }
 
         /* Tối ưu countdown */
-        .countdown-item {
-          min-width: 60px;
-          padding: 10px 12px;
+        .count-item {
+          min-width: 55px;
+          padding: 8px 10px;
         }
 
-        .countdown-number {
+        .count-num {
           font-size: 1.5em;
         }
 
+        .count-label {
+          font-size: 0.65em;
+        }
+
+        .countdown-display {
+          gap: 8px;
+        }
+
+        .countdown-item {
+          min-width: 55px;
+          padding: 8px 10px;
+        }
+
+        .countdown-number {
+          font-size: 1.3em;
+        }
+
         .countdown-label {
-          font-size: 0.7em;
+          font-size: 0.65em;
         }
 
         .countdown-box {
-          gap: 8px;
+          gap: 6px;
         }
 
         /* Love quotes */
         .love-quote {
-          padding: 20px 15px;
-          margin: 15px 0;
+          padding: 15px 10px;
+          margin: 10px 0;
         }
 
         .love-quote-text {
-          font-size: 1.4em;
+          font-size: 1.2em;
         }
 
         .love-quote-author {
-          font-size: 0.8em;
+          font-size: 0.75em;
+        }
+
+        .love-quote::before,
+        .love-quote::after {
+          font-size: 1.2em;
         }
       }
     </style>
@@ -1033,10 +1174,10 @@
           >
             <div class="container ww-announcement-container">
               <p class="ww-couple-name ww-title" style="font-size: 4em">
-                Văn Sỹ
+                Sỹ
               </p>
               <p class="ww-couple-name ww-title" style="font-size: 3em">&</p>
-              <p class="ww-couple-name ww-title" style="font-size: 4em">Thùy Dung</p>
+              <p class="ww-couple-name ww-title" style="font-size: 4em">Dung</p>
               <br /><br /><br /><br /><br /><br />
               <p
                 class="h2 mt-5 ww-title"
@@ -1444,16 +1585,64 @@
     <script src="js/ekko-lightbox.min.js"></script>
 
     <div class="bottom_left">
-      <audio id="player" src="mus.mp3"></audio>
+      <audio id="player" src="mus.mp3" autoplay loop></audio>
       <div>
         <i
+          id="music-icon"
           class="fa fa-music fa-2x"
-          onclick="document.getElementById('player').play()"
+          onclick="toggleMusic()"
         ></i>
       </div>
     </div>
 
     <script>
+      // ===== MUSIC AUTO PLAY =====
+      const player = document.getElementById('player');
+      const musicIcon = document.getElementById('music-icon');
+      let isPlaying = false;
+
+      // Function to toggle music
+      function toggleMusic() {
+        if (player.paused) {
+          player.play();
+          musicIcon.style.color = '#d4a574';
+          isPlaying = true;
+        } else {
+          player.pause();
+          musicIcon.style.color = '#fff';
+          isPlaying = false;
+        }
+      }
+
+      // Try to autoplay when page loads
+      window.addEventListener('load', function() {
+        player.play().then(() => {
+          musicIcon.style.color = '#d4a574';
+          isPlaying = true;
+        }).catch(() => {
+          // Autoplay blocked, wait for user interaction
+          console.log('Autoplay blocked, waiting for user interaction');
+        });
+      });
+
+      // Auto play on first user interaction
+      function startMusicOnInteraction() {
+        if (!isPlaying) {
+          player.play().then(() => {
+            musicIcon.style.color = '#d4a574';
+            isPlaying = true;
+          }).catch(() => {});
+        }
+        // Remove listeners after first interaction
+        document.removeEventListener('click', startMusicOnInteraction);
+        document.removeEventListener('touchstart', startMusicOnInteraction);
+        document.removeEventListener('scroll', startMusicOnInteraction);
+      }
+
+      document.addEventListener('click', startMusicOnInteraction);
+      document.addEventListener('touchstart', startMusicOnInteraction);
+      document.addEventListener('scroll', startMusicOnInteraction);
+
       // ===== SCROLL ANIMATIONS =====
       function checkScroll() {
         const elements = document.querySelectorAll('.slide-in-from-left, .slide-in-from-right, .slide-in-from-bottom, .zoom-in, .gallery-item, .love-quote');
