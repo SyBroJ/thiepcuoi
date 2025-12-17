@@ -454,6 +454,41 @@
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
       }
 
+      /* Animation cho 3 ảnh ceremony */
+      .ceremony-photos-grid .photo-item {
+        opacity: 0;
+        transition: all 0.8s ease-out;
+      }
+
+      /* Ảnh bên trái - chạy từ trái vào */
+      .ceremony-photos-grid .photo-side:first-child {
+        transform: translateX(-100px);
+      }
+
+      /* Ảnh giữa - đứng yên, chỉ fade in */
+      .ceremony-photos-grid .photo-center {
+        transform: scale(0.9);
+      }
+
+      /* Ảnh bên phải - chạy từ phải vào */
+      .ceremony-photos-grid .photo-side:last-child {
+        transform: translateX(100px);
+      }
+
+      /* Khi scroll đến thì hiện */
+      .ceremony-photos-grid.active .photo-item {
+        opacity: 1;
+      }
+
+      .ceremony-photos-grid.active .photo-side:first-child,
+      .ceremony-photos-grid.active .photo-side:last-child {
+        transform: translateX(0);
+      }
+
+      .ceremony-photos-grid.active .photo-center {
+        transform: scale(1);
+      }
+
       /* Responsive for mobile */
       @media (max-width: 768px) {
         .ceremony-photos-grid {
@@ -1779,7 +1814,7 @@
             </div>
 
             <!-- Wedding Ceremony Photos -->
-            <div class="ceremony-photos-grid slide-in-from-bottom">
+            <div class="ceremony-photos-grid">
               <div class="photo-item photo-side">
                 <img src="images/pic16.jpg" alt="Wedding ceremony photo 1" />
               </div>
@@ -2239,6 +2274,7 @@
       function checkScroll() {
         const elements = document.querySelectorAll('.slide-in-from-left, .slide-in-from-right, .slide-in-from-bottom, .zoom-in, .gallery-item, .love-quote');
         const coupleImages = document.querySelectorAll('.couple-img');
+        const ceremonyPhotos = document.querySelectorAll('.ceremony-photos-grid');
         const windowHeight = window.innerHeight;
 
         elements.forEach(element => {
@@ -2263,6 +2299,19 @@
           // Image is in viewport - trigger animation
           if (imgTop < windowHeight * 0.85 && imgBottom > 0) {
             img.classList.add('animate');
+          }
+        });
+
+        // Check ceremony photos animation
+        ceremonyPhotos.forEach(grid => {
+          if (grid.classList.contains('active')) return; // Skip if already active
+
+          const gridTop = grid.getBoundingClientRect().top;
+          const gridBottom = grid.getBoundingClientRect().bottom;
+
+          // Grid is in viewport - trigger animation
+          if (gridTop < windowHeight * 0.85 && gridBottom > 0) {
+            grid.classList.add('active');
           }
         });
 
